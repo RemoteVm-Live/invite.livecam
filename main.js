@@ -3,16 +3,16 @@ var key  = "OBSNINJAFORLIFE";
 function process(event=false){
 	var input = document.getElementById("urlInpput").value;
 	
-	if (input.startsWith("https://obs.ninja/")){
-		input = input.replace('https://vdo.ninja/', '');
-	} else if (input.startsWith("http://obs.ninja/")){
-		input = input.replace('http://vdo.ninja/', '');
-	} else if (input.startsWith("obs.ninja/")){
-		input = input.replace('vdo.ninja/', '');
-	} else if (input.startsWith("https://vdo.ninja/")){
-		input = input.replace('https://vdo.ninja/', 'vdo.ninja/');
-	} else if (input.startsWith("http://vdo.ninja/")){
-		input = input.replace('http://vdo.ninja/', 'vdo.ninja/');
+	if (input.startsWith("https://live.remotevm.ir")){
+		input = input.replace('https://live.remotevm.ir/', '');
+	} else if (input.startsWith("https://live.remotevm.ir/")){
+		input = input.replace('http://live.remotevm.ir/', '');
+	} else if (input.startsWith("live.remotevm.ir/")){
+		input = input.replace('live.remotevm.ir/', '');
+	} else if (input.startsWith("https://live.remotevm.ir/")){
+		input = input.replace('https://live.remotevm.ir/', 'live.remotevm.ir/');
+	} else if (input.startsWith("http://live.remotevm.ir/")){
+		input = input.replace('http://live.remotevm.ir/', 'live.remotevm.ir/');
 	} 
 	
 	input = input.replace('&view=', '&v=');
@@ -95,10 +95,10 @@ if (window.location.pathname.length>20){
 	var decrypted = CryptoJS.AES.decrypt(window.location.pathname.split(/\/(.+)/)[1], key);
 	
 	decrypted = decrypted.toString(CryptoJS.enc.Utf8);
-	decrypted = decrypted.replace("obs.ninja","vdo.ninja");
+	decrypted = decrypted.replace("obs.ninja","live.remotevm.ir");
 	
 	if (!decrypted){
-		decrypted = "https://vdo.ninja/";
+		decrypted = "https://live.remotevm.ir/";
 	}
 	
 	if (decrypted.includes("perfectwatch")){
@@ -113,7 +113,7 @@ if (window.location.pathname.length>20){
 				decrypted.startsWith("https://75.59.233.87:") ||
 				decrypted.startsWith("https://75.59.233.87/")){
 		// skip
-	} else if (!(decrypted.includes("?") || decrypted.includes("&") || decrypted.includes("vdo.ninja") || !decrypted.startsWith("http"))){
+	} else if (!(decrypted.includes("?") || decrypted.includes("&") || decrypted.includes("live.remotevm.ir") || !decrypted.startsWith("http"))){
 		decrypted = false;
 		document.write("This link is not approved to be accessed. Please contact the site's administrator if this is a new issue.");
 	} 
@@ -131,7 +131,7 @@ if (window.location.pathname.length>20){
 			} else {
 				decrypted+="?noheader";
 			}
-		} else if (decrypted.startsWith("vdo.ninja/")){
+		} else if (decrypted.startsWith("live.remotevm.ir/")){
 			decrypted = "https://"+decrypted;
 			if (decrypted.includes("?")){
 				decrypted+="&noheader";
@@ -139,7 +139,7 @@ if (window.location.pathname.length>20){
 				decrypted+="?noheader";
 			}
 		} else {
-			decrypted = "https://vdo.ninja/"+decrypted;
+			decrypted = "https://live.remotevm.ir/"+decrypted;
 			if (decrypted.includes("?")){
 				decrypted+="&noheader";
 			} else {
@@ -147,9 +147,9 @@ if (window.location.pathname.length>20){
 			}
 		}
 		
-		if (!(decrypted.startsWith("https://vdo.ninja/") || 
-			decrypted.startsWith("https://vdo.ninja?") || 
-			decrypted.startsWith("https://versus.cam/") || 
+		if (!(decrypted.startsWith("https://live.remotevm.ir/") || 
+			decrypted.startsWith("https://live.remotevm.ir?") || 
+			decrypted.startsWith("https://cam.remotevm.ir//") || 
 			decrypted.startsWith("http://75.59.233.87/") || 
 			decrypted.startsWith("https://75.59.233.87/") ||
 			decrypted.startsWith("http://75.59.233.87:") || 
@@ -167,8 +167,8 @@ if (window.location.pathname.length>20){
 			        iframe.src = "https://vdo.ninja/alpha/?i="+encodeURIComponent(location.pathname.split(/\/(.+)/)[1]);
 			    } else if (decrypted.startsWith("https://vdo.ninja/beta/?")){
 			        iframe.src = "https://vdo.ninja/beta/?i="+encodeURIComponent(location.pathname.split(/\/(.+)/)[1]);
-			    } else if (decrypted.startsWith("https://vdo.ninja/?")){
-			        iframe.src = "https://vdo.ninja/?i="+encodeURIComponent(location.pathname.split(/\/(.+)/)[1]);
+			    } else if (decrypted.startsWith("https://live.remotevm.ir/?")){
+			        iframe.src = "https://live.remotevm.ir/?i="+encodeURIComponent(location.pathname.split(/\/(.+)/)[1]);
 			    } else {
 			        iframe.src = decrypted;
 			    }
@@ -225,17 +225,17 @@ if (window.location.pathname.length>20){
 	document.getElementById("body").appendChild(container);
 
 	var title = document.createElement("h3");
-	title.innerHTML = "URL Obfuscator for VDO.Ninja<br />";
+	title.innerHTML = "URL Obfuscator for Live RemoteVm<br />";
 	container.appendChild(title);
 
 	var input = document.createElement("input");
-	input.placeholder = "Paste the VDO.Ninja invite URL here";
+	input.placeholder = "Paste the invite URL here";
 	input.id = "urlInpput";
 	input.style.padding = "10px";
 	input.style.width = "500px";
 	input.style.maxWidth = "90%";
-	input.title = "Put an VDO.Ninja invite link here";
-	input.alt = "Put an VDO.Ninja invite link here";
+	input.title = "Put an invite link here";
+	input.alt = "Put an invite link here";
 	container.appendChild(input);
 	
 	var button = document.createElement("button");
@@ -254,13 +254,13 @@ if (window.location.pathname.length>20){
 	
 	var div = document.createElement("a");
 	div.style.margin = "20px";
-	div.href= "https://invite.vdo.ninja";
+	div.href= "https://inviter.remotevm.ir";
 	div.innerHTML = "or create a new Invite Link here";
 	container.appendChild(div);
 	
 	var div = document.createElement("h5");
 	div.style.margin = "20px";
-	div.innerHTML = "<br /><br />Notice: Due to abuse, only VDO.Ninja and white-listed domains are allowed now.<br />Contact me here to report abuse: <i>steve@seguin.email</i>"
+	div.innerHTML = "<br /><br />R.V.M<br />-<i>RemoteVm.ir</i>"
 	container.appendChild(div);
 }
 
