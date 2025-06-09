@@ -225,7 +225,7 @@ if (window.location.pathname.length>20){
 	document.getElementById("body").appendChild(container);
 
 	var title = document.createElement("h3");
-	title.innerHTML = "URL Obfuscator for Live RemoteVm<br />";
+	title.innerHTML = "URL Obfuscator for Live RemoteVm <br />";
 	container.appendChild(title);
 
 	var input = document.createElement("input");
